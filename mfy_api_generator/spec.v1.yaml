@@ -25,9 +25,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AnimalId"
-  #"/ai/my-project/animals/dogs/{id}":
-  #  get:
+  "/ai/my-project/animals/dogs/{id}":
+    get:
+      parameters:
+        - $ref: "#/components/parameters/AnimalId"
+      responses:
+        "200":
+          description: The created animal id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dog"
 components:
+  parameters:
+    AnimalId:
+      name: id
+      required: true
+      in: path
+      schema:
+        $ref: "#/components/schemas/AnimalId"
   schemas:
     CreateAnimal:
       type: object
@@ -48,3 +64,14 @@ components:
         - possum
     AnimalId:
       type: string
+    Dog:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          $ref: "#/components/schemas/AnimalId"
+        name:
+          type: string
+        cute:
+          type: boolean
