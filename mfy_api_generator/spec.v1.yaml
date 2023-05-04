@@ -1,0 +1,50 @@
+# ./spec.v1.yml
+openapi: 3.0.2
+info:
+  title: My Project
+  version: "0.1.0"
+  description: Getting started with mfy_api_generator
+  contact:
+    name: Me
+    email: malikeljaouadi@gmail.com
+servers:
+  - url: "http://wefox-ai-my-project.wai.svc.cluster.local"
+    description: inside
+paths:
+  "/ai/my-project/animals":
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAnimal"
+      responses:
+        "200":
+          description: The craeted animal id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnimalId"
+  #"/ai/my-project/animals/dogs/{id}":
+  #  get:
+components:
+  schemas:
+    CreateAnimal:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          $ref: "#/components/schemas/AnimalType"
+        name:
+          type: string
+        cute:
+          type: boolean
+    AnimalType:
+      type: string
+      enum:
+        - cat
+        - dog
+        - possum
+    AnimalId:
+      type: string
