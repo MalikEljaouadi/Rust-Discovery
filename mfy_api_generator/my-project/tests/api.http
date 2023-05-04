@@ -1,0 +1,9 @@
+### Test with VS Code - REST client plugin
+### See https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@host = localhost
+@port = 8080
+
+###
+# @name health
+GET http://{{host}}:{{port}}/health

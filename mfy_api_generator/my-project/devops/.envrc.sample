@@ -1,0 +1,14 @@
+# direnv configuration to update, can be used to run locally .sh script
+
+# common
+export WEFOX_REGISTRY_USERNAME="wefox-server"
+export WEFOX_REGISTRY_PASSWORD="xxxx"
+export NEPTUNE_API_TOKEN="xxxx"
+
+# project related
+export EKS_CLUSTER_NAME="ai-dev"
+export APP_NAME="my-project"
+export APP_TARGET="ms"
+export APP_NAMESPACE="my-project"
+export CHART_PATH="devops/chart-${APP_TARGET}"
+export APP_TARGET_VALUES="[('${APP_TARGET}', '${CHART_PATH}/values.yaml')]"

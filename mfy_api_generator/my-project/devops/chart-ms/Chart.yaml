@@ -1,0 +1,20 @@
+# see https://helm.sh/docs/topics/charts/#the-chartyaml-file
+apiVersion: v2
+name: my-project
+description: A Helm chart for my-project
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+home: https://github.com/uberforcede/my-project
+
+sources:
+  - https://github.com/uberforcede/my-project/tree/master/devops/chart
+
+dependencies:
+  - name: wefox-ai-ms
+    version: "~0.5.0"
+    repository: https://registry.wefox.io/repository/helm-hosted/

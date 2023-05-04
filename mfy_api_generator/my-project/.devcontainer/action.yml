@@ -1,0 +1,24 @@
+# .devcontainer/action.yml
+
+# HACK to be able to use devcontainer as container for action
+# TODO replace by https://github.com/devcontainers/ci when working on wefox self-hosted (npm, g++ missing)
+
+name: "devcontainer"
+description: "Provide the devcontainer Dockerfile as context to run command"
+inputs:
+  runCmd:
+    required: true
+    description: "Specify the command to run after building the dev container image. Can be omitted to skip starting the container."
+# outputs:
+#   time: # id of output
+#     description: "The time we greeted you"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - -ex
+    - -c
+    - ${{ inputs.runCmd }}
+branding:
+  icon: "package"
+  color: "green"

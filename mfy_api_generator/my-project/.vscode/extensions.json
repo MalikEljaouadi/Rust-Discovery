@@ -1,0 +1,9 @@
+{
+  // megalinter can provide those recommendation after a run
+  // [Linters Configuration Files Reporter for MegaLinter - MegaLinter by OX Security](https://megalinter.io/latest/reporters/ConfigReporter/)
+  "recommendations": [
+    "MS-CST-E.vscode-devskim",
+    // "Bridgecrew.checkov", # require a license & Token
+    "AquaSecurityOfficial.trivy-vulnerability-scanner"
+  ]
+}

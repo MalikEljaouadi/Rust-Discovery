@@ -1,0 +1,3 @@
+[net]
+# Require to fetch wai shared libs
+git-fetch-with-cli = true

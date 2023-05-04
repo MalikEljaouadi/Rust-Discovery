@@ -1,0 +1,22 @@
+# shellcheck disable=SC2148
+# direnv configuration to update, can be used to run locally .sh script
+
+## common
+export WEFOX_REGISTRY_USERNAME="wefox-server"
+export WEFOX_REGISTRY_PASSWORD="xxxx"
+export NEPTUNE_API_TOKEN="xxxx"
+
+## project related
+export APP_NAME="my-project"
+export APP_TARGET="ms"
+
+## sccache
+## use `sccache --show-stats` to see cache location, cache hit/misses...
+# export RUSTC_WRAPPER="sccache"
+## sccache setup for remote / shared cache (keep commented to use local cache)
+# export SCCACHE_BUCKET="wefox-ai-wai-sccache-dev"
+# export SCCACHE_REGION="eu-central-1"
+# export SCCACHE_S3_USE_SSL=true
+# export SCCACHE_S3_KEY_PREFIX="$APP_NAME"
+# export AWS_PROFILE=k8sDevelopers
+# export CARGO_INCREMENTAL=false # to please SCCACHE (always true ?)

@@ -1,0 +1,21 @@
+# Can be run by CD in push mode
+# or via cli `helmfile apply` (with every environment variable setup)
+# [helmfile](https://helmfile.readthedocs.io/en/latest/)
+# require helm diff plugin:
+# `helm plugin install https://github.com/databus23/helm-diff``
+repositories:
+  - name: wefox
+    url: https://registry.wefox.io/repository/helm-hosted/
+    username: '{{ requiredEnv "WEFOX_REGISTRY_USERNAME" }}'
+    password: '{{ requiredEnv "WEFOX_REGISTRY_PASSWORD" }}'
+
+releases:
+  - name: '{{ requiredEnv "APP_NAME" }}'
+    namespace: '{{ requiredEnv "APP_NAMESPACE" }}'
+    chart: chart-ms
+    wait: true
+    waitForJobs: true
+    createNamespace: true
+    values:
+      - chart-ms/values.yaml
+      - chart-ms/values_{{ requiredEnv "EKS_CLUSTER_NAME" }}.yaml
