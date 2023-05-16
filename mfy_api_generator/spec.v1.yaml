@@ -13,6 +13,9 @@ servers:
 paths:
   "/ai/my-project/animals":
     post:
+      description: Post request to get animals
+      tags: ["animals", "testing"]
+      operationId: "1"
       requestBody:
         content:
           application/json:
@@ -27,6 +30,9 @@ paths:
                 $ref: "#/components/schemas/AnimalId"
   "/ai/my-project/animals/dogs/{id}":
     get:
+      description: Post request to get animals
+      tags: ["animals", "testing"]
+      operationId: "2"
       parameters:
         - $ref: "#/components/parameters/AnimalId"
       responses:
