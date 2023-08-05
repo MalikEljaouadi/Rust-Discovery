@@ -1,9 +1,0 @@
-target
-build
-venv
-.venv
-megalinter-reports
-devops
-.git
-.github
-.devcontainer
